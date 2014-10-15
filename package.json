@@ -1,0 +1,24 @@
+{
+  "name": "SampleDocs",
+  "version": "0.0.1",
+  "description": "Docs demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smajkic-d2l/SampleDocs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smajkic-d2l/SampleDocs/issues"
+  },
+  "homepage": "https://github.com/smajkic-d2l/SampleDocs",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-sftp": "^0.1.3"
+  }
+}

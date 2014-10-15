@@ -1,12 +1,12 @@
 language: python
 python:
-  - "2.7"
+- '2.7'
 before_install:
- - sudo apt-get install -qq graphviz
-# command to install dependencies
-install: "pip install -q -r requirements.txt --use-mirrors"
-# command to run tests
+- sudo apt-get install -qq graphviz
+install: pip install -q -r requirements.txt --use-mirrors
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
-# Flags used here, not in `make html`:
-#  -n   Run in nit-picky mode. Currently, this generates warnings for all missing references.
-#  -W   Turn warnings into errors. This means that the build stops at the first warning and sphinx-build exits with exit status 1.
+after_success:
+-gulp publish-dev
+env:
+  global:
+    secure: G9lrdV9cJnMOa6oGO6qTkyFj/TmQKg3n8de51g4XUvHfVnmIfyGmM0p10PaKliNNLGcJ6rp8h03JHHqT4JdE+rtsXLSZsRMiCZxDDvT7ySCi7PgHQm3WdgfwJPxxmGN4gdqDYNXL5FqIi10Yfqz2OSLFV9S+ZAtnVYbm9fR1mU8=
