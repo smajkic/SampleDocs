@@ -4,6 +4,8 @@ python:
 before_install:
 - sudo apt-get install -qq graphviz
 install: pip install -q -r requirements.txt --use-mirrors
+before_script:
+- npm install
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
 after_success:
 - gulp publish-dev
