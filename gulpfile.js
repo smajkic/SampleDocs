@@ -3,7 +3,7 @@ var sftp = require('gulp-sftp');
 
 gulp.task('publish-dev', function () {
     var sshkey = process.env.SSHKEY;
-    return gulp.src('_build/*')
+    return gulp.src('_build/html/**')
         .pipe(sftp({
             host: 'docs.edev.desire2learn.com',
             user: 'travis',
