@@ -6,7 +6,7 @@ before_install:
 install: pip install -q -r requirements.txt --use-mirrors
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
 after_success:
--gulp publish-dev
+- gulp publish-dev
 env:
   global:
     secure: G9lrdV9cJnMOa6oGO6qTkyFj/TmQKg3n8de51g4XUvHfVnmIfyGmM0p10PaKliNNLGcJ6rp8h03JHHqT4JdE+rtsXLSZsRMiCZxDDvT7ySCi7PgHQm3WdgfwJPxxmGN4gdqDYNXL5FqIi10Yfqz2OSLFV9S+ZAtnVYbm9fR1mU8=
