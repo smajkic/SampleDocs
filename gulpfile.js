@@ -2,12 +2,13 @@ var gulp = require('gulp');
 var sftp = require('gulp-sftp');
 
 gulp.task('publish-dev', function () {
-    var sshkey = process.env.SSHKEY;
+	var sshuser = process.env.SSHUSER;
+	var dest = process.env.DEVDEST;
     return gulp.src('_build/html/**')
         .pipe(sftp({
             host: 'docs.edev.desire2learn.com',
-            user: 'travis',
-            remotePath: '/var/www/vui/sm-test',
-			pass: sshkey
+            user: sshuser,
+            remotePath: dest,
+			key: {location:'sshkey'}
         }));
 });

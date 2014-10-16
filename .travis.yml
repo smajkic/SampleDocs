@@ -3,6 +3,8 @@ python:
 - '2.7'
 before_install:
 - sudo apt-get install -qq graphviz
+- openssl aes-256-cbc -K $encrypted_46b647485205_key -iv $encrypted_46b647485205_iv
+  -in sshkey.enc -out sshkey -d
 install: pip install -q -r requirements.txt --use-mirrors
 before_script:
 - npm install
@@ -11,4 +13,5 @@ after_success:
 - gulp publish-dev
 env:
   global:
-    secure: G9lrdV9cJnMOa6oGO6qTkyFj/TmQKg3n8de51g4XUvHfVnmIfyGmM0p10PaKliNNLGcJ6rp8h03JHHqT4JdE+rtsXLSZsRMiCZxDDvT7ySCi7PgHQm3WdgfwJPxxmGN4gdqDYNXL5FqIi10Yfqz2OSLFV9S+ZAtnVYbm9fR1mU8=
+  - secure: Kq1v4v8WsxgeRQPjvl8w30MODuICf5C7+jOabIza7fHbJHBsnLQeXRgl7Nh/aZ/0VgfMBOS46ImQQx2Z46NeBYS+kKA4VwL0Tx+KJdk7krPg+mxjPFHpkz8/8Wma/PNZgQAg7D+B/P/v2YA14v++1S0ZdEX8h8MPN2ooAWlRm/U=
+  - secure: YmgZqBKqFGZmJRziHj2stKbUwi4eo8I7yccbK4boJ4yHeyUcxIdtx6HJLU7q80KDf1aBVKDKnnijGb4rtO5YNYZiWDxG5OdvSO/WiYj9qIh7KUVWA8bi6uCLgVq1ezTthpmRw8ZZRCF/WfbucqkkRVanCmwerEc5h3RF6IXDGYo=
