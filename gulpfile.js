@@ -10,6 +10,6 @@ gulp.task('publish-dev', function () {
             host: 'docs.edev.desire2learn.com',
             user: sshuser,
             remotePath: dest,
-			key: {location:'key.txt'}
+			key: {location:'vuidev.pem'}
         }));
 });
