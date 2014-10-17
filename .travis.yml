@@ -3,9 +3,9 @@ python:
 - '2.7'
 before_install:
 - openssl aes-256-cbc -K $encrypted_46b647485205_key -iv $encrypted_46b647485205_iv
-  -in test.txt.enc -out test.txt -d
+  -in sshkey2.enc -out sshkey2 -d
 - openssl aes-256-cbc -K $encrypted_46b647485205_key -iv $encrypted_46b647485205_iv
-  -in sshkey.enc -out sshkey -d
+  -in test.txt.enc -out test.txt -d
 - sudo apt-get install -qq graphviz
 install: pip install -q -r requirements.txt --use-mirrors
 before_script:
