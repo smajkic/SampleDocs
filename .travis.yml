@@ -2,18 +2,17 @@ language: python
 python:
 - '2.7'
 before_install:
-- openssl aes-256-cbc -K $encrypted_46b647485205_key -iv $encrypted_46b647485205_iv
-  -in test.pem.enc -out test.pem -d
-- openssl aes-256-cbc -K $encrypted_46b647485205_key -iv $encrypted_46b647485205_iv
-  -in vuidev.pem.enc -out vuidev.pem -d
 - sudo apt-get install -qq graphviz
 install: pip install -q -r requirements.txt --use-mirrors
-before_script:
-- npm install
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
-after_success:
-- gulp publish-dev
+deploy:
+  provider: s3
+  access_key_id: <%= ENV['aws_key_prod'] %>
+  secret_access_key: <%= ENV['aws_secret_prod] %>
+  bucket: "vui-docs"
+  skip_cleanup: true
+  local-dir: _build/html
 env:
   global:
-  - secure: Kq1v4v8WsxgeRQPjvl8w30MODuICf5C7+jOabIza7fHbJHBsnLQeXRgl7Nh/aZ/0VgfMBOS46ImQQx2Z46NeBYS+kKA4VwL0Tx+KJdk7krPg+mxjPFHpkz8/8Wma/PNZgQAg7D+B/P/v2YA14v++1S0ZdEX8h8MPN2ooAWlRm/U=
-  - secure: YmgZqBKqFGZmJRziHj2stKbUwi4eo8I7yccbK4boJ4yHeyUcxIdtx6HJLU7q80KDf1aBVKDKnnijGb4rtO5YNYZiWDxG5OdvSO/WiYj9qIh7KUVWA8bi6uCLgVq1ezTthpmRw8ZZRCF/WfbucqkkRVanCmwerEc5h3RF6IXDGYo=
+  - secure: jVTao8o4AgS8sRwygnDD61xluYnyFlRYIgcFspklofQiEJQ4RPJ+PZ06kWLlOlFXE/iASV3Leiak6zyg3/0LF3KKxx+Oxl2iW2MMc3kY8TBB2dgIjaTeaHyaDEVIugrdrP8GLvvCX2tpIEL0Y5Lyu2371um4dlv+elYmNdrDPJ8=
+  - secure: RaJOD/IftN1NYFIGhiYWacRjMXo6afiIGrt3tvbbnHgIaoWfYynurpPKRTW4ABHhmByOcKAq4akkHLw+1+mq6OzFrcze3Vd1JI5LYeR08VeiSJPk+adqYSg0vZKJLkZ2NZCHquUcjIfq6w3ijcqfCIjDTICoR1Kv0IomWxp/vrw=
