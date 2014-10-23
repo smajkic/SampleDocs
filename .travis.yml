@@ -9,10 +9,10 @@ deploy:
   provider: s3
   access_key_id: <%= ENV['aws_key_prod'] %>
   secret_access_key: <%= ENV['aws_secret_prod] %>
-  bucket: "vui-docs"
+  bucket: vui-docs
   skip_cleanup: true
   local-dir: _build/html
 env:
   global:
-  - secure: jVTao8o4AgS8sRwygnDD61xluYnyFlRYIgcFspklofQiEJQ4RPJ+PZ06kWLlOlFXE/iASV3Leiak6zyg3/0LF3KKxx+Oxl2iW2MMc3kY8TBB2dgIjaTeaHyaDEVIugrdrP8GLvvCX2tpIEL0Y5Lyu2371um4dlv+elYmNdrDPJ8=
-  - secure: RaJOD/IftN1NYFIGhiYWacRjMXo6afiIGrt3tvbbnHgIaoWfYynurpPKRTW4ABHhmByOcKAq4akkHLw+1+mq6OzFrcze3Vd1JI5LYeR08VeiSJPk+adqYSg0vZKJLkZ2NZCHquUcjIfq6w3ijcqfCIjDTICoR1Kv0IomWxp/vrw=
+  - secure: EW1yyDVph7E8WVt2wtvSlY8yk3ss0jX1BurZ+Pv0AJjYu+JTAHxBKIq/PmwP0cW62OeUO2m5OhEgO/bB2FK9QmaV2rMt+zuTaRXDSyaz7Iu6Ku4oP4IkJo06gGKgpNLNBxttGz5LjIkJC3B3fUxvc2GO7Nipo54XCktRB9asvBY=
+  - secure: DjR37r0l02pBD+e1FYJirbL44Pi9SziLzFQHKGVa/pQ1iNFOl9lKmt08f7dMqBpVq5B+2HJ75FK1qZg1du+IO/KEtTBbclC/TFC0hVsveebnfLrYQUP3o7X2XbO7O3QuWfMldtMk9tuEkw9fMtAP6zk7GP1DmAbhc94ruJ7svLc=
