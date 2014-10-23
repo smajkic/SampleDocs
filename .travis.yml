@@ -6,13 +6,25 @@ before_install:
 install: pip install -q -r requirements.txt --use-mirrors
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
 deploy:
-  provider: s3
+- provider: s3
   access_key_id: $aws_key_prod
   secret_access_key: $aws_secret_prod
   bucket: vui-docs
-  skip_cleanup: true
   local-dir: _build/html
+  on:
+    tags: true
+    branch: master
+- provider: s3
+  access_key_id: $aws_key_internal
+  secret_access_key: $aws_secret_internal
+  bucket: vui-docs-internal
+  local-dir: _build/htm
+  upload-dir: ${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}
+  on:
+    tags: false
 env:
   global:
   - secure: EW1yyDVph7E8WVt2wtvSlY8yk3ss0jX1BurZ+Pv0AJjYu+JTAHxBKIq/PmwP0cW62OeUO2m5OhEgO/bB2FK9QmaV2rMt+zuTaRXDSyaz7Iu6Ku4oP4IkJo06gGKgpNLNBxttGz5LjIkJC3B3fUxvc2GO7Nipo54XCktRB9asvBY=
   - secure: DjR37r0l02pBD+e1FYJirbL44Pi9SziLzFQHKGVa/pQ1iNFOl9lKmt08f7dMqBpVq5B+2HJ75FK1qZg1du+IO/KEtTBbclC/TFC0hVsveebnfLrYQUP3o7X2XbO7O3QuWfMldtMk9tuEkw9fMtAP6zk7GP1DmAbhc94ruJ7svLc=
+  - secure: ClVwrXcwO3tQOeo/aKfypjn7sJu9ufLXwJUfNi/7LMR3wJ1aQfZQF9feWRV3PRFna+bElKHXV2LGhkeiLyGuCAOTX44kp6bJiTpqtVYBoiY6izTeMsVg7lSQ2tMBZ3nTeONzEGzQWs16+wpXvt9wzlFlpP1HFutummcEaH2QdZU=
+  - secure: ajIjxYlL2mo1SsSwHsIN89OAHZ5tAj3aBLmGuHsCFIGpZakpUIiDNRmc/isionTSxEDuESPVzKu9L4GEfrohDLXUtZsGrAjsBBYIJug8oCNXKVuv2vk5KuSxiOhfFZCUs09XHuS+goznnS+6c5Q7Wvjxvp43HqluNAVZsoQTe+Q=
