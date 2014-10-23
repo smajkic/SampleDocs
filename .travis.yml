@@ -22,6 +22,7 @@ deploy:
   upload-dir: ${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}
   on:
     tags: false
+    all_branches: true
 env:
   global:
   - secure: EW1yyDVph7E8WVt2wtvSlY8yk3ss0jX1BurZ+Pv0AJjYu+JTAHxBKIq/PmwP0cW62OeUO2m5OhEgO/bB2FK9QmaV2rMt+zuTaRXDSyaz7Iu6Ku4oP4IkJo06gGKgpNLNBxttGz5LjIkJC3B3fUxvc2GO7Nipo54XCktRB9asvBY=
