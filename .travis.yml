@@ -7,8 +7,8 @@ install: pip install -q -r requirements.txt --use-mirrors
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
 deploy:
   provider: s3
-  access_key_id: <%= ENV['aws_key_prod'] %>
-  secret_access_key: <%= ENV['aws_secret_prod] %>
+  access_key_id: $aws_key_prod
+  secret_access_key: $aws_secret_prod
   bucket: vui-docs
   skip_cleanup: true
   local-dir: _build/html
