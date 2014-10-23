@@ -3,6 +3,9 @@ python:
 - '2.7'
 before_install:
 - sudo apt-get install -qq graphviz
+- echo "TRAVIS_BUILD_NUMBER: $TRAVIS_BUILD_NUMBER"
+- echo "TRAVIS_COMMIT: $TRAVIS_COMMIT"
+- echo "TRAVIS_BRANCH: $TRAVIS_BRANCH"
 install: pip install -q -r requirements.txt --use-mirrors
 script: sphinx-build -nW -b html -d _build/doctrees . _build/html
 deploy:
