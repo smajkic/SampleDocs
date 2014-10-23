@@ -18,7 +18,7 @@ deploy:
   access_key_id: $aws_key_internal
   secret_access_key: $aws_secret_internal
   bucket: vui-docs-internal
-  local-dir: _build/htm
+  local-dir: _build/html
   upload-dir: ${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}
   on:
     tags: false
