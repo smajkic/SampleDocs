@@ -6,16 +6,13 @@ before_install:
 install: pip install -q -r requirements.txt --use-mirrors
 script:
 - sphinx-build -nW -b html -d _build/doctrees . _build/html
-after_success:
-- echo "TRAVIS_BUILD_NUMBER: $TRAVIS_BUILD_NUMBER"
-- echo "TRAVIS_COMMIT: $TRAVIS_COMMIT"
-- echo "TRAVIS_BRANCH: $TRAVIS_BRANCH"
 deploy:
 - provider: s3
   access_key_id: $aws_key_prod
   secret_access_key: $aws_secret_prod
   bucket: vui-docs
   local-dir: _build/html
+  skip_cleanup: true
   on:
     tags: true
     all_branches: true
@@ -25,6 +22,7 @@ deploy:
   bucket: vui-docs-internal
   local-dir: _build/html
   upload-dir: ${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}
+  skip_cleanup: true
   on:
     tags: false
     all_branches: true
