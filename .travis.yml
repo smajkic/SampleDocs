@@ -1,11 +1,9 @@
 language: python
 python:
 - '2.7'
-before_install:
-- sudo apt-get install -qq graphviz
-install: pip install -q -r requirements.txt --use-mirrors
+install: pip install -q -r requirements.txt
 script:
-- sphinx-build -nW -b html -d _build/doctrees . _build/html
+- sphinx-build -b html -d _build/doctrees . _build/html
 deploy:
 - provider: s3
   access_key_id: $aws_key_prod
@@ -27,7 +25,7 @@ deploy:
     tags: false
     all_branches: true
 after_success:
-- python sendComment.py "Published to http://vui-docs-internal.s3-website-us-east-1.amazonaws.com/${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}"
+- echo "sendComment.py Published to http://vui-docs-internal.s3-website-us-east-1.amazonaws.com/${TRAVIS_BUILD_NUMBER}_${TRAVIS_COMMIT}"
 env:
   global:
   - secure: EW1yyDVph7E8WVt2wtvSlY8yk3ss0jX1BurZ+Pv0AJjYu+JTAHxBKIq/PmwP0cW62OeUO2m5OhEgO/bB2FK9QmaV2rMt+zuTaRXDSyaz7Iu6Ku4oP4IkJo06gGKgpNLNBxttGz5LjIkJC3B3fUxvc2GO7Nipo54XCktRB9asvBY=
