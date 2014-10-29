@@ -14,10 +14,6 @@ headers = {'Authorization': 'token ' + token, 'User-Agent' : userAgent}
 value = sys.argv[1]
 data = json.dumps( {"body": value } )
 
-print "githubUrl: " + githubUrl
-print "data: " + data
-
 request = urllib2.Request(githubUrl, data, headers)
 content = urllib2.urlopen(request).read()
-
 print content
